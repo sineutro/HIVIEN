@@ -308,6 +308,17 @@ button { cursor: pointer; border: none; background: none; }
   letter-spacing: -2px;
   margin-bottom: 24px;
   color: var(--white);
+  /* Reserve space for both lines so the page never reflows */
+  min-height: calc(clamp(40px, 5.5vw, 72px) * 1.1 * 2);
+}
+
+/* The animated span must be an inline-block with a fixed height
+   equal to exactly one line, so erasing/retyping never changes
+   the h1's rendered height. */
+.hero-title .gradient-text {
+  display: inline-block;
+  min-height: calc(clamp(40px, 5.5vw, 72px) * 1.1);
+  vertical-align: top;
 }
 
 .hero-subtitle {

@@ -286,31 +286,54 @@
     const el = document.querySelector('.hero-title .gradient-text');
     if (!el) return;
 
+    // Ensure the wrapper has a fixed height before we start so the
+    // page layout is locked from the very first frame.
+    // We measure the line-height of the h1 and apply it as min-height.
+    function lockHeight() {
+      const h1 = el.closest('.hero-title');
+      if (!h1) return;
+      const lineH = parseFloat(getComputedStyle(h1).lineHeight) ||
+                    parseFloat(getComputedStyle(h1).fontSize) * 1.1;
+      // Reserve exactly 1 line for the animated span
+      el.style.minHeight = lineH + 'px';
+      el.style.display = 'inline-block';
+      el.style.verticalAlign = 'top';
+    }
+    lockHeight();
+    window.addEventListener('resize', lockHeight);
+
     let phraseIdx = 0;
     let charIdx = 0;
     let isDeleting = false;
     let typingSpeed = 80;
 
+    // Use zero-width space (\u200B) instead of empty string so the
+    // inline-block span never collapses to zero height between phrases.
+    const PLACEHOLDER = '\u200B';
+
     function type() {
       const phrase = phrases[phraseIdx];
 
       if (isDeleting) {
-        el.textContent = phrase.substring(0, charIdx - 1);
         charIdx--;
-        typingSpeed = 50;
+        // Never let charIdx go below 0; use placeholder when empty
+        const text = charIdx > 0 ? phrase.substring(0, charIdx) : PLACEHOLDER;
+        el.textContent = text;
+        typingSpeed = 45;
       } else {
-        el.textContent = phrase.substring(0, charIdx + 1);
         charIdx++;
-        typingSpeed = 80;
+        el.textContent = phrase.substring(0, charIdx);
+        typingSpeed = 75;
       }
 
       if (!isDeleting && charIdx === phrase.length) {
         isDeleting = true;
-        typingSpeed = 2000; // Pause at end
-      } else if (isDeleting && charIdx === 0) {
+        typingSpeed = 2200; // Long pause at end so reader can absorb it
+      } else if (isDeleting && charIdx <= 0) {
+        charIdx = 0;
         isDeleting = false;
         phraseIdx = (phraseIdx + 1) % phrases.length;
-        typingSpeed = 400;
+        typingSpeed = 350;
       }
 
       setTimeout(type, typingSpeed);
