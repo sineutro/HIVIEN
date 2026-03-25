@@ -13,7 +13,7 @@ app.get('/', (c) => {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HIVIEN – High Vision Engine | AI Voice Agents for Business</title>
   <meta name="description" content="HIVIEN deploys intelligent AI voice agents that handle calls, book appointments, and scale your customer communications 24/7 — without hiring." />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
