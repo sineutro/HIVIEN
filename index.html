@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hivien – High Vision Engine | AI Voice Agents</title>
+  <meta name="description" content="Hivien builds intelligent AI voice agents for inbound, outbound, and lead generation — 24/7, with human-like precision." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hivien.ai/" />
+  <meta property="og:title" content="Hivien – AI Voice Agents | Always On. Always Closing." />
+  <meta property="og:description" content="Hivien builds intelligent AI voice agents for inbound, outbound, and lead generation — 24/7, with human-like precision." />
+  <meta property="og:image" content="https://hivien.ai/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hivien – AI Voice Agents | Always On. Always Closing." />
+  <meta name="twitter:description" content="AI voice agents that handle calls, prospect leads, and support customers 24/7." />
+  <meta name="twitter:image" content="https://hivien.ai/og-image.jpg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://hivien.ai/" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Hivien",
+    "alternateName": "High Vision Engine",
+    "url": "https://hivien.ai",
+    "email": "hello@hivien.com",
+    "description": "Hivien builds intelligent AI voice agents for inbound calls, outbound prospecting, and customer support — 24/7.",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your real Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ===== LOADER ===== -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <img src="images/hivien-icon.png" alt="Hivien Logo" />
+      </div>
+      <div class="loader-bar"><div class="loader-progress"></div></div>
+    </div>
+  </div>
+
+  <!-- ===== EXIT INTENT POPUP ===== -->
+  <div id="exitPopup" class="popup-overlay">
+    <div class="popup-box">
+      <button class="popup-close" id="closePopup"><i class="fas fa-times"></i></button>
+      <div class="popup-badge">🎁 FREE CONSULTATION</div>
+      <h2>Wait! Don't Leave Empty-Handed</h2>
+      <p>Get a <strong>FREE 30-minute AI strategy call</strong> with a Hivien expert. We'll map out exactly how AI voice agents can transform your revenue — zero obligation.</p>
+      <a href="#book" class="btn-popup" onclick="closePopup()">Claim My Free Session</a>
+      <span class="popup-dismiss" onclick="closePopup()">No thanks, I prefer missing revenue opportunities</span>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="images/hivien-icon.png" alt="Hivien" />
+        <div class="nav-brand-text">
+          <span class="nav-brand-name">HIVIEN</span>
+          <span class="nav-brand-sub">High Vision Engine</span>
+        </div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Features</a></li>
+        <li><a href="#how">How&nbsp;It&nbsp;Works</a></li>
+        <li><a href="#demo">Hear&nbsp;the&nbsp;AI</a></li>
+        <li><a href="#roi">ROI&nbsp;Calculator</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#book" class="nav-cta">Book&nbsp;a&nbsp;Demo</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-glow" id="heroGlow"></div>
+    <div class="hero-content">
+      <div class="hero-badge fade-in-up">
+        <span class="pulse-dot"></span> AI Voice Agents — Live & Deployed
+      </div>
+      <h1 class="hero-title fade-in-up delay-1">
+        Your AI Workforce.<br /><span class="gradient-text">Always On.</span><br />Always Closing.
+      </h1>
+      <p class="hero-sub fade-in-up delay-2">
+        Hivien builds intelligent AI voice agents that handle inbound calls, outbound prospecting, and lead generation — 24/7, with human-like precision.
+      </p>
+      <div class="hero-ctas fade-in-up delay-3">
+        <a href="#book" class="btn-primary">
+          <i class="fas fa-calendar-check"></i> Book a Demo
+        </a>
+        <a href="#demo" class="btn-secondary">
+          <i class="fas fa-play-circle"></i> Hear the AI
+        </a>
+      </div>
+      <div class="hero-waveform fade-in-up delay-4">
+        <div class="waveform-label"><i class="fas fa-microphone-alt"></i> AI Agent Active</div>
+        <div class="waveform">
+          <div class="waveform-bars" id="waveformBars"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-geometric">
+      <div class="geo geo-1"></div>
+      <div class="geo geo-2"></div>
+      <div class="geo geo-3"></div>
+    </div>
+  </section>
+
+  <!-- ===== SOCIAL PROOF BAR ===== -->
+  <section id="proofBar">
+    <div class="proof-ticker">
+      <div class="proof-inner" id="proofInner">
+        <div class="proof-item"><i class="fas fa-check-circle"></i> Trusted by 200+ Businesses Worldwide</div>
+        <div class="proof-sep">✦</div>
+        <div class="proof-item"><span>2M+</span> Calls Handled</div>
+        <div class="proof-sep">✦</div>
+        <div class="proof-item"><span>97%</span> Customer Satisfaction</div>
+        <div class="proof-sep">✦</div>
+        <div class="proof-item"><span>45%</span> More Leads Generated</div>
+        <div class="proof-sep">✦</div>
+        <div class="proof-item"><i class="fas fa-clock"></i> 24/7 Availability</div>
+        <div class="proof-sep">✦</div>
+        <div class="proof-item"><i class="fas fa-check-circle"></i> Trusted by 200+ Businesses Worldwide</div>
+        <div class="proof-sep">✦</div>
+        <div class="proof-item"><span>2M+</span> Calls Handled</div>
+        <div class="proof-sep">✦</div>
+        <div class="proof-item"><span>97%</span> Customer Satisfaction</div>
+        <div class="proof-sep">✦</div>
+        <div class="proof-item"><span>45%</span> More Leads Generated</div>
+        <div class="proof-sep">✦</div>
+        <div class="proof-item"><i class="fas fa-clock"></i> 24/7 Availability</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS SECTION ===== -->
+  <section id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon"><i class="fas fa-phone-volume"></i></div>
+          <div class="stat-number"><span class="counter" data-target="2" data-suffix="M+">0</span></div>
+          <div class="stat-label">Calls Handled</div>
+        </div>
+        <div class="stat-card animate-on-scroll delay-1">
+          <div class="stat-icon"><i class="fas fa-star"></i></div>
+          <div class="stat-number"><span class="counter" data-target="97" data-suffix="%">0</span></div>
+          <div class="stat-label">Customer Satisfaction</div>
+        </div>
+        <div class="stat-card animate-on-scroll delay-2">
+          <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="stat-number"><span class="counter" data-target="45" data-suffix="%">0</span></div>
+          <div class="stat-label">More Leads Generated</div>
+        </div>
+        <div class="stat-card animate-on-scroll delay-3">
+          <div class="stat-icon"><i class="fas fa-building"></i></div>
+          <div class="stat-number"><span class="counter" data-target="200" data-suffix="+">0</span></div>
+          <div class="stat-label">Businesses Transformed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES SECTION ===== -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-tag">What We Build</div>
+        <h2>AI Agents Built to <span class="gradient-text">Drive Revenue</span></h2>
+        <p>Every agent is custom-built, trained on your business, and deployed at scale.</p>
+      </div>
+      <div class="services-grid services-grid-4">
+
+        <!-- Card 1: AI Receptionist -->
+        <div class="service-card animate-on-scroll">
+          <div class="service-card-glow"></div>
+          <div class="service-icon">
+            <div class="icon-ring"></div>
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="service-tag">Inbound Voice</div>
+          <h3>The 24/7 AI Receptionist</h3>
+          <p>Never miss a high-value call again. Your AI receptionist answers, qualifies, and books — around the clock.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> <span><strong>Smart Call Screening</strong> — Distinguishes new leads from existing clients to prioritise high-value calls</span></li>
+            <li><i class="fas fa-check"></i> <span><strong>Autonomous Appointment Setting</strong> — Books, updates, or cancels meetings directly in your calendar in real-time</span></li>
+            <li><i class="fas fa-check"></i> <span><strong>Live CRM Synchronisation</strong> — Adds new profiles, updates records, and logs detailed call summaries automatically</span></li>
+            <li><i class="fas fa-check"></i> <span><strong>Intelligent Lead Qualification</strong> — Vets every caller against your specific criteria before they reach your team</span></li>
+            <li><i class="fas fa-check"></i> <span><strong>Seamless Human Handoff</strong> — Instantly routes complex or "hot" prospects to a live agent when necessary</span></li>
+          </ul>
+          <a href="#book" class="service-cta">Get This Agent <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Card 2: AI Growth Engine -->
+        <div class="service-card featured animate-on-scroll delay-1">
+          <div class="service-card-glow"></div>
+          <div class="featured-badge">Most Popular</div>
+          <div class="service-icon">
+            <div class="icon-ring"></div>
+            <i class="fas fa-rocket"></i>
+          </div>
+          <div class="service-tag">Outbound Lead Gen</div>
+          <h3>The AI Growth Engine</h3>
+          <p>Your autonomous sales development rep — finds leads, crafts strategy, and fills your pipeline on autopilot.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> <span><strong>Multi-Platform Lead Sourcing</strong> — Scrapes Google Maps, LinkedIn, and niche forums to find ideal customers</span></li>
+            <li><i class="fas fa-check"></i> <span><strong>Automated Data Enrichment</strong> — Filters and validates contact info to ensure you only chase high-quality prospects</span></li>
+            <li><i class="fas fa-check"></i> <span><strong>Bespoke Strategy Generation</strong> — Creates ready-to-use marketing plans and custom ad copy for every lead found</span></li>
+            <li><i class="fas fa-check"></i> <span><strong>Campaign-Ready Outreach</strong> — Drafts hyper-personalised emails and outbound scripts tailored to each prospect</span></li>
+            <li><i class="fas fa-check"></i> <span><strong>Pipeline Automation</strong> — Syncs all gathered data and strategies directly into your CRM for immediate action</span></li>
+          </ul>
+          <a href="#book" class="service-cta">Get This Agent <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Card 3: AI Success Manager -->
+        <div class="service-card animate-on-scroll delay-2">
+          <div class="service-card-glow"></div>
+          <div class="service-icon">
+            <div class="icon-ring"></div>
+            <i class="fas fa-headset"></i>
+          </div>
+          <div class="service-tag">Support & Resolution</div>
+          <h3>The AI Success Manager</h3>
+          <p>Handles support calls with the power to take real action — not just answer questions, but resolve issues end-to-end.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> <span><strong>Transactional Voice Support</strong> — Handles inbound support calls with the power to take action instantly</span></li>
+            <li><i class="fas fa-check"></i> <span><strong>Automated Issue Resolution</strong> — Processes returns, refunds, and order updates via Stripe, Shopify, or Amazon</span></li>
+            <li><i class="fas fa-check"></i> <span><strong>Live Ecosystem Integration</strong> — Syncs with Zendesk and internal databases for instant, accurate account updates</span></li>
+            <li><i class="fas fa-check"></i> <span><strong>24/7 Troubleshooting</strong> — Resolves complex queries by referencing brand policies and documentation</span></li>
+            <li><i class="fas fa-check"></i> <span><strong>Autonomous Ticket Management</strong> — Updates support tickets and logs customer sentiment to keep operations organised</span></li>
+          </ul>
+          <a href="#book" class="service-cta">Get This Agent <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Card 4: Ultimate AI Agency Suite -->
+        <div class="service-card suite-card animate-on-scroll delay-3">
+          <div class="service-card-glow"></div>
+          <div class="suite-badge"><i class="fas fa-crown"></i> All-In-One</div>
+          <div class="service-icon">
+            <div class="icon-ring"></div>
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <div class="service-tag">Complete Automation</div>
+          <h3>The Ultimate AI Agency Suite</h3>
+          <p>A complete deployment of all 3 agents working seamlessly together to automate your entire customer lifecycle — from discovery to retention.</p>
+          <div class="suite-includes">
+            <div class="suite-agent">
+              <i class="fas fa-phone-alt"></i>
+              <span>AI Receptionist</span>
+            </div>
+            <div class="suite-plus">+</div>
+            <div class="suite-agent">
+              <i class="fas fa-rocket"></i>
+              <span>AI Growth Engine</span>
+            </div>
+            <div class="suite-plus">+</div>
+            <div class="suite-agent">
+              <i class="fas fa-headset"></i>
+              <span>AI Success Manager</span>
+            </div>
+          </div>
+          <p class="suite-desc">One unified system. Infinite scale. Your entire revenue operation — automated.</p>
+          <a href="#book" class="service-cta suite-cta">Get the Full Suite <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="how">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-tag">The Process</div>
+        <h2>From Zero to <span class="gradient-text">Revenue Machine</span></h2>
+        <p>We handle everything. You just watch the results roll in.</p>
+      </div>
+      <div class="steps-line"></div>
+      <div class="steps-container">
+        <div class="steps-grid">
+          <div class="step-item animate-on-scroll">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <div class="step-icon"><i class="fas fa-search"></i></div>
+              <h3>We Understand Your Business</h3>
+              <p>We deep-dive into your sales process, customer personas, tone of voice, and revenue goals. Every agent is built around your unique DNA.</p>
+            </div>
+          </div>
+          <div class="step-item animate-on-scroll delay-1">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <div class="step-icon"><i class="fas fa-robot"></i></div>
+              <h3>We Build Your AI Agent</h3>
+              <p>Custom-trained on your data, scripts, and objections. Your agent speaks your language, understands your offers, and handles any conversation.</p>
+            </div>
+          </div>
+          <div class="step-item animate-on-scroll delay-2">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <div class="step-icon"><i class="fas fa-rocket"></i></div>
+              <h3>Deploy & Scale</h3>
+              <p>Go live in days, not months. Scale from 10 calls to 10,000 with zero additional headcount. The infrastructure handles everything.</p>
+            </div>
+          </div>
+          <div class="step-item animate-on-scroll delay-3">
+            <div class="step-number">04</div>
+            <div class="step-content">
+              <div class="step-icon"><i class="fas fa-chart-bar"></i></div>
+              <h3>Watch Revenue Grow</h3>
+              <p>Real-time analytics dashboard, continuous AI optimisation, and monthly strategy reviews. Your agent gets smarter every single day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEMO SECTION ===== -->
+  <section id="demo">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-tag">Hear the Difference</div>
+        <h2>Experience <span class="gradient-text">Human-Like AI</span> in Action</h2>
+        <p>Pick a scenario and hear your AI agent handle it flawlessly.</p>
+      </div>
+
+      <!-- Scenario Tabs -->
+      <div class="demo-tabs animate-on-scroll">
+        <button class="demo-tab active" data-scenario="dentist">
+          <i class="fas fa-tooth"></i> Dental Clinic
+        </button>
+        <button class="demo-tab" data-scenario="realestate">
+          <i class="fas fa-home"></i> Real Estate
+        </button>
+        <button class="demo-tab" data-scenario="ecommerce">
+          <i class="fas fa-shopping-bag"></i> E-commerce
+        </button>
+      </div>
+
+      <div class="demo-wrapper animate-on-scroll">
+        <div class="demo-player">
+          <div class="demo-header">
+            <div class="demo-status">
+              <span class="live-dot"></span>
+              <span id="demoScenarioLabel">Inbound — Appointment Booking (Dental)</span>
+            </div>
+            <div class="demo-controls">
+              <button class="demo-play-btn" id="demoPlayBtn" title="Play / Pause">
+                <i class="fas fa-play" id="demoIcon"></i>
+              </button>
+            </div>
+          </div>
+          <div class="demo-waveform">
+            <div class="demo-wave-bars" id="demoWaveBars"></div>
+          </div>
+          <!-- FIXED HEIGHT TRANSCRIPT — no more layout shift -->
+          <div class="demo-transcript-wrap">
+            <div class="demo-transcript" id="demoTranscript">
+              <div class="transcript-placeholder">
+                <i class="fas fa-microphone-alt"></i>
+                <span>Press play to hear the AI agent in action</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-info">
+          <h3 id="demoInfoTitle">Inbound Booking — <span class="gradient-text">Dental Clinic</span></h3>
+          <p id="demoInfoDesc">Your AI receptionist handles new patient calls 24/7 — booking, rescheduling, and qualifying without any human involvement.</p>
+          <ul class="demo-features">
+            <li><i class="fas fa-check-circle"></i> Natural language understanding</li>
+            <li><i class="fas fa-check-circle"></i> Context-aware responses</li>
+            <li><i class="fas fa-check-circle"></i> Emotion detection & adaptation</li>
+            <li><i class="fas fa-check-circle"></i> Multi-language support</li>
+            <li><i class="fas fa-check-circle"></i> Real-time transcription & logging</li>
+          </ul>
+          <a href="#book" class="btn-primary">
+            <i class="fas fa-bolt"></i> Build Your Agent Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESULTS / ROI SECTION ===== -->
+  <section id="results">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-tag">Proven Results</div>
+        <h2>The Numbers <span class="gradient-text">Don't Lie</span></h2>
+        <p>Real results from real businesses. Average figures across our client base.</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-card animate-on-scroll">
+          <div class="result-ring" data-percent="90">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="42"/>
+              <circle class="ring-fill" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="264"/>
+            </svg>
+            <div class="result-center">
+              <span class="result-num counter" data-target="300" data-suffix="%">0</span>
+            </div>
+          </div>
+          <h4>ROI in 90 Days</h4>
+        </div>
+        <div class="result-card animate-on-scroll delay-1">
+          <div class="result-ring" data-percent="85">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="42"/>
+              <circle class="ring-fill" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="264"/>
+            </svg>
+            <div class="result-center">
+              <span class="result-num counter" data-target="85" data-suffix="%">0</span>
+            </div>
+          </div>
+          <h4>Reduction in Missed Calls</h4>
+        </div>
+        <div class="result-card animate-on-scroll delay-2">
+          <div class="result-ring" data-percent="95">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="42"/>
+              <circle class="ring-fill" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="264"/>
+            </svg>
+            <div class="result-center">
+              <span class="result-num counter" data-target="10" data-suffix="x">0</span>
+            </div>
+          </div>
+          <h4>Faster Lead Response</h4>
+        </div>
+        <div class="result-card animate-on-scroll delay-3">
+          <div class="result-ring" data-percent="75">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="42"/>
+              <circle class="ring-fill" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="264"/>
+            </svg>
+            <div class="result-center">
+              <span class="result-num counter" data-target="2.3" data-suffix="M">0</span>
+            </div>
+          </div>
+          <h4>Revenue Generated for Clients</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROI CALCULATOR ===== -->
+  <section id="roi">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-tag">ROI Calculator</div>
+        <h2>See Your <span class="gradient-text">Potential Savings</span></h2>
+        <p>Estimate how much Hivien could save your business every month.</p>
+      </div>
+      <div class="roi-wrapper animate-on-scroll">
+
+        <!-- Row 1 -->
+        <div class="roi-slider-group">
+          <div class="roi-slider-header">
+            <label>Number of customer service agents</label>
+            <span class="roi-slider-val" id="agentsVal">5</span>
+          </div>
+          <input type="range" id="agentsSlider" min="1" max="50" value="5" class="roi-range" />
+          <div class="roi-slider-ticks"><span>1</span><span>50</span></div>
+        </div>
+        <div class="roi-result-card primary">
+          <div class="roi-result-icon"><i class="fas fa-piggy-bank"></i></div>
+          <div class="roi-result-body">
+            <div class="roi-result-value" id="monthlySavings">$12K</div>
+            <div class="roi-result-label">Estimated Monthly Savings</div>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="roi-slider-group">
+          <div class="roi-slider-header">
+            <label>Average calls per day</label>
+            <span class="roi-slider-val" id="callsVal">100</span>
+          </div>
+          <input type="range" id="callsSlider" min="10" max="1000" value="100" step="10" class="roi-range" />
+          <div class="roi-slider-ticks"><span>10</span><span>1,000</span></div>
+        </div>
+        <div class="roi-result-card">
+          <div class="roi-result-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="roi-result-body">
+            <div class="roi-result-value" id="annualSavings">$144K</div>
+            <div class="roi-result-label">Estimated Annual Savings</div>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="roi-slider-group">
+          <div class="roi-slider-header">
+            <label>Average agent monthly cost ($)</label>
+            <span class="roi-slider-val" id="costVal">$4,000</span>
+          </div>
+          <input type="range" id="costSlider" min="1000" max="15000" value="4000" step="100" class="roi-range" />
+          <div class="roi-slider-ticks"><span>$1k</span><span>$15k</span></div>
+        </div>
+        <div class="roi-result-card">
+          <div class="roi-result-icon"><i class="fas fa-phone-volume"></i></div>
+          <div class="roi-result-body">
+            <div class="roi-result-value" id="callsHandled">36.5K</div>
+            <div class="roi-result-label">Calls Handled Per Year</div>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="roi-slider-group">
+          <div class="roi-slider-header">
+            <label>Monthly support tickets</label>
+            <span class="roi-slider-val" id="ticketsVal">200</span>
+          </div>
+          <input type="range" id="ticketsSlider" min="0" max="5000" value="200" step="50" class="roi-range" />
+          <div class="roi-slider-ticks"><span>0</span><span>5,000</span></div>
+        </div>
+        <div class="roi-result-card">
+          <div class="roi-result-icon"><i class="fas fa-clock"></i></div>
+          <div class="roi-result-body">
+            <div class="roi-result-value" id="hoursReclaimed">1,200h</div>
+            <div class="roi-result-label">Hours Reclaimed Per Month</div>
+          </div>
+        </div>
+
+        <!-- CTA Row — full width, centered -->
+        <div class="roi-cta-row">
+          <p class="roi-disclaimer">*Estimates based on industry averages. Actual results may vary.</p>
+          <a href="#book" class="btn-roi">
+            Get Your Custom ROI Report <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-tag">Client Stories</div>
+        <h2>Trusted by Businesses <span class="gradient-text">Worldwide</span></h2>
+        <p>Don't take our word for it — here's what our clients say.</p>
+      </div>
+      <div class="testimonials-grid">
+
+        <!-- Testimonial 1: Home Services -->
+        <div class="testi-card animate-on-scroll">
+          <div class="testi-top">
+            <div class="testi-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="testi-industry"><i class="fas fa-wrench"></i> Home Services</div>
+          </div>
+          <blockquote>"We were losing 30–40 calls a week just because we couldn't answer fast enough. Hivien's inbound AI picked up every single one from day one. In 60 days, we added $28K in booked jobs. Our scheduler basically runs itself now."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">DK</div>
+            <div>
+              <strong>Derek Kowalski</strong>
+              <span>Owner, SunState HVAC & Plumbing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2: SaaS -->
+        <div class="testi-card featured animate-on-scroll delay-1">
+          <div class="testi-badge">Featured Story</div>
+          <div class="testi-top">
+            <div class="testi-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="testi-industry"><i class="fas fa-laptop-code"></i> SaaS</div>
+          </div>
+          <blockquote>"Our outbound team was burning out hitting 80 dials a day with a 2% connect rate. Hivien's Growth Engine now handles all prospecting — finds leads, enriches data, writes personalised emails, and books discovery calls. We went from 4 demos/week to 22. That's not a typo."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background: linear-gradient(135deg, #00D4FF, #4ECDC4);">SR</div>
+            <div>
+              <strong>Simone Ramirez</strong>
+              <span>Founder & CEO, Stackr.io</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3: E-commerce -->
+        <div class="testi-card animate-on-scroll delay-2">
+          <div class="testi-top">
+            <div class="testi-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="testi-industry"><i class="fas fa-shopping-cart"></i> E-commerce</div>
+          </div>
+          <blockquote>"Peak season nearly broke us last year — 800+ tickets a day and a 3-day response time. This year we deployed the AI Success Manager and our average resolution time dropped to under 4 minutes. Returns, refunds, order swaps — handled instantly. Our CSAT went from 3.1 to 4.8 stars."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background: linear-gradient(135deg, #a78bfa, #ec4899);">NP</div>
+            <div>
+              <strong>Nina Park</strong>
+              <span>Head of CX, LuminaHome Store</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ===== FAQ SECTION ===== -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-tag">Questions</div>
+        <h2>Everything You Need to <span class="gradient-text">Know</span></h2>
+        <p>Can't find your answer? Book a call — we'll walk you through everything.</p>
+      </div>
+      <div class="faq-grid animate-on-scroll">
+        <div class="faq-item">
+          <button class="faq-question">
+            How human-like are the AI voice agents? <i class="fas fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Our AI agents are trained on thousands of real sales conversations and use the latest neural voice synthesis. In blind tests, over 92% of callers cannot distinguish our agents from human representatives. We continuously refine tone, pacing, and conversational flow based on real call data.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            How long does it take to deploy an agent? <i class="fas fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Most clients are fully live within 7–14 business days. The process includes a discovery session, custom script development, training, testing, and deployment. For enterprise clients with complex integrations, timelines may extend to 3–4 weeks.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Can the AI handle objections and off-script questions? <i class="fas fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Our agents are trained on your specific objection library and can handle hundreds of conversation variations. When a conversation falls outside scope, the agent gracefully transitions to a human handoff — ensuring no opportunity is lost.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            What integrations do you support? <i class="fas fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>We integrate with Salesforce, HubSpot, Pipedrive, Zoho, GoHighLevel, and virtually any CRM via Zapier or custom API. Calendar integrations include Calendly, Google Calendar, and Microsoft Outlook for seamless appointment booking.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Is the service TCPA and GDPR compliant? <i class="fas fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. All our voice agents include mandatory disclosure protocols, do-not-call list management, call recording consent notifications, and full data handling compliance with TCPA, GDPR, and CCPA regulations. Compliance documentation is provided with every deployment.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            What happens if I exceed my call limit? <i class="fas fa-plus faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>You'll never lose a call due to limits. When you approach your monthly threshold, our team proactively reaches out to discuss scaling options. Additional call blocks can be added at any time, and we never cut off active calls mid-conversation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOOKING / CTA SECTION ===== -->
+  <section id="book">
+    <div class="container">
+      <div class="book-wrapper animate-on-scroll">
+        <div class="book-content">
+          <div class="section-tag">Ready to Transform?</div>
+          <h2>Start Your AI Journey <span class="gradient-text">Today</span></h2>
+          <p>Book a free 30-minute strategy call. We'll show you exactly how AI voice agents can work for your business — with live demos and real numbers.</p>
+          <ul class="book-promises">
+            <li><i class="fas fa-check-circle"></i> No pushy sales tactics</li>
+            <li><i class="fas fa-check-circle"></i> Live AI agent demo</li>
+            <li><i class="fas fa-check-circle"></i> Custom ROI projection</li>
+            <li><i class="fas fa-check-circle"></i> Actionable strategy (yours to keep)</li>
+          </ul>
+        </div>
+        <div class="book-form">
+          <form id="leadForm" class="lead-form">
+            <h3>Book Your Free Demo</h3>
+            <div class="form-group">
+              <input type="text" name="full_name" placeholder="Your Full Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Business Email" required />
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="Phone Number" />
+            </div>
+            <div class="form-group">
+              <select name="call_volume">
+                <option value="" disabled selected>Monthly Call Volume</option>
+                <option>Under 500 calls</option>
+                <option>500–2,000 calls</option>
+                <option>2,000–10,000 calls</option>
+                <option>10,000+ calls</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select name="primary_goal">
+                <option value="" disabled selected>Primary Goal</option>
+                <option>Inbound Call Handling</option>
+                <option>Outbound Prospecting</option>
+                <option>Lead Generation & Support</option>
+                <option>Full Suite Deployment</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-calendar-check"></i> Book My Free Demo
+            </button>
+            <p class="form-note"><i class="fas fa-lock"></i> Your information is 100% secure. No spam, ever.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="footer-cta">
+      <div class="container">
+        <div class="footer-cta-content animate-on-scroll">
+          <h2>Ready to Transform <span class="gradient-text">Your Business?</span></h2>
+          <a href="#book" class="btn-primary large">
+            <i class="fas fa-rocket"></i> Get Started Today
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-wordmark">
+              <span class="footer-wordmark-name">HIVIEN</span>
+              <span class="footer-wordmark-tag">HIGH VISION ENGINE</span>
+            </div>
+            <p>Building the AI workforce of tomorrow, today. Intelligent voice agents for every stage of your customer lifecycle.</p>
+            <div class="social-links">
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Solutions</h4>
+            <ul>
+              <li><a href="#services">AI Receptionist</a></li>
+              <li><a href="#services">AI Growth Engine</a></li>
+              <li><a href="#services">AI Success Manager</a></li>
+              <li><a href="#services">Full Agency Suite</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#" class="link-soon">About Hivien</a></li>
+              <li><a href="#" class="link-soon">Case Studies</a></li>
+              <li><a href="#" class="link-soon">Blog</a></li>
+              <li><a href="#" class="link-soon">Careers</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="mailto:hello@hivien.com"><i class="fas fa-envelope"></i> hello@hivien.com</a></li>
+              <li><a href="#book"><i class="fas fa-calendar"></i> Book a Demo</a></li>
+              <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Hivien — High Vision Engine. All Rights Reserved.</p>
+          <div class="footer-legal">
+            <a href="#" class="link-soon">Privacy Policy</a>
+            <a href="#" class="link-soon">Terms of Service</a>
+            <a href="#" class="link-soon">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== MOBILE STICKY CTA ===== -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="#book" class="btn-sticky">
+      <i class="fas fa-calendar-check"></i> Book Free Demo
+    </a>
+  </div>
+
+  <!-- ===== SUCCESS TOAST ===== -->
+  <div id="successToast" class="toast">
+    <i class="fas fa-check-circle"></i>
+    <span>Awesome! We'll be in touch within 24 hours 🚀</span>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
