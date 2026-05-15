@@ -18,28 +18,32 @@
     }
   });
 
-  navToggle && navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    const bars = navToggle.querySelectorAll('span');
-    if (navLinks.classList.contains('open')) {
-      bars[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-      bars[1].style.opacity = '0';
-      bars[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-    } else {
-      bars[0].style.transform = '';
-      bars[1].style.opacity = '';
-      bars[2].style.transform = '';
-    }
-  });
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const bars = navToggle.querySelectorAll('span');
+      if (navLinks.classList.contains('open')) {
+        bars[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        bars[1].style.opacity = '0';
+        bars[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+      } else {
+        bars[0].style.transform = '';
+        bars[1].style.opacity = '';
+        bars[2].style.transform = '';
+      }
+    });
+  }
 
   // Close nav on link click
   navLinks && navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
-      const bars = navToggle.querySelectorAll('span');
-      bars[0].style.transform = '';
-      bars[1].style.opacity = '';
-      bars[2].style.transform = '';
+      if (navToggle) {
+        const bars = navToggle.querySelectorAll('span');
+        bars[0].style.transform = '';
+        bars[1].style.opacity = '';
+        bars[2].style.transform = '';
+      }
     });
   });
 
@@ -80,7 +84,6 @@
       '.product-feature',
       '.hiw-step',
       '.benefit-card',
-      '.testimonial-card',
       '.trust-card',
       '.roi-result-card',
       '.section-header',
@@ -103,6 +106,8 @@
   function initProductTabs() {
     const features = document.querySelectorAll('.product-feature');
     const panels = document.querySelectorAll('.pd-panel');
+
+    if (!features.length || !panels.length) return;
 
     features.forEach(feature => {
       feature.addEventListener('click', () => {
@@ -230,7 +235,7 @@
     const submitText = document.getElementById('submitText');
     const submitLoading = document.getElementById('submitLoading');
 
-    if (!form) return;
+    if (!form || !submitBtn || !submitText || !submitLoading) return;
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -263,6 +268,65 @@
 
     // Input focus effects
     form.querySelectorAll('input, select').forEach(input => {
+      input.addEventListener('focus', () => {
+        input.parentElement.querySelector('i') &&
+          input.parentElement.querySelector('i').style.setProperty('color', 'rgba(96, 165, 250, 0.8)');
+      });
+      input.addEventListener('blur', () => {
+        input.parentElement.querySelector('i') &&
+          input.parentElement.querySelector('i').style.setProperty('color', 'rgba(255,255,255,0.3)');
+      });
+    });
+  }
+
+  // Mailto inquiry form for contact page
+  function initContactInquiryForm() {
+    const form = document.getElementById('contactInquiryForm');
+    if (!form) return;
+
+    const recipient = form.dataset.mailto || 'hello@hivien.com';
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(form);
+      const name = (formData.get('name') || '').toString().trim();
+      const email = (formData.get('email') || '').toString().trim();
+      const company = (formData.get('company') || '').toString().trim();
+      const website = (formData.get('website') || '').toString().trim();
+      const system = (formData.get('system') || '').toString().trim();
+      const automation = (formData.get('automation') || '').toString().trim();
+
+      const subjectBase = company || name || 'New inquiry';
+      const subject = `Hivien inquiry - ${subjectBase}`;
+
+      const lines = [
+        'Hi Hivien,',
+        '',
+        'I would like to discuss an AI system for my business.',
+        '',
+        `Name: ${name || 'Not provided'}`,
+        `Business email: ${email || 'Not provided'}`,
+        `Company name: ${company || 'Not provided'}`,
+        `Website: ${website || 'Not provided'}`,
+        `Interested in: ${system || 'Not provided'}`,
+        '',
+        'What I want to automate:',
+        automation || 'Not provided',
+      ];
+
+      const mailtoUrl =
+        `mailto:${encodeURIComponent(recipient)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+
+      window.location.href = mailtoUrl;
+    });
+
+    form.querySelectorAll('input, select, textarea').forEach(input => {
       input.addEventListener('focus', () => {
         input.parentElement.querySelector('i') &&
           input.parentElement.querySelector('i').style.setProperty('color', 'rgba(96, 165, 250, 0.8)');
@@ -346,7 +410,10 @@
   // ── Active Nav Link on Scroll ─────────────────────────────
   function initActiveNavLinks() {
     const sections = document.querySelectorAll('section[id]');
-    const links = document.querySelectorAll('.nav-links a');
+    const links = Array.from(document.querySelectorAll('.nav-links a'))
+      .filter((link) => link.getAttribute('href') && link.getAttribute('href').startsWith('#'));
+
+    if (!sections.length || !links.length) return;
 
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -527,6 +594,7 @@
     initProductTabs();
     initROICalculator();
     initDemoForm();
+    initContactInquiryForm();
     initTypewriter();
     initActiveNavLinks();
     initCounters();
